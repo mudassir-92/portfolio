@@ -1,7 +1,7 @@
 /* ── EmailJS Init ── */
 (function () {
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init('9fp5COI7FWbmtoxK9');
+    if (typeof emailjs !== 'undefined' && window.CONFIG) {
+        emailjs.init(window.CONFIG.EMAILJS_PUBLIC_KEY);
     }
 })();
 
@@ -69,8 +69,8 @@ function handleSubmit(e) {
     };
 
     // Check if EmailJS is loaded
-    if (typeof emailjs === 'undefined') {
-        btn.textContent = '❌ EmailJS not loaded — check connection';
+    if (typeof emailjs === 'undefined' || !window.CONFIG) {
+        btn.textContent = '❌ Config not loaded — check config.js';
         btn.style.background = '#dc2626';
         btn.disabled = false;
         btn.style.opacity = '1';
@@ -83,12 +83,12 @@ function handleSubmit(e) {
     }
 
     // Send contact email to you
-    emailjs.send('service_rb59o9a', 'template_cd2eg9j', templateParams)
+    emailjs.send(window.CONFIG.EMAILJS_SERVICE_ID, window.CONFIG.EMAILJS_CONTACT_TEMPLATE_ID, templateParams)
         .then(function () {
             // Wait 2s, then send auto-reply to client
             return new Promise(function (resolve) {
                 setTimeout(function () {
-                    resolve(emailjs.send('service_rb59o9a', 'template_xuppqc6', templateParams));
+                    resolve(emailjs.send(window.CONFIG.EMAILJS_SERVICE_ID, window.CONFIG.EMAILJS_AUTOREPLY_TEMPLATE_ID, templateParams));
                 }, 2000);
             });
         })
@@ -129,3 +129,4 @@ function handleSubmit(e) {
             }, 4000);
         });
 }
+
