@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mudassir Ashraf — Flutter & Mobile App Developer. I build apps people love." />
+    <meta name="description" content="Mudassir Ashraf — Mobile App Developer from Lahore. I build mobile apps people love." />
     <title>Mudassir Ashraf · App Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=DM+Sans:wght@400;500&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../style.css" />
 </head>
 
@@ -38,19 +41,18 @@
     <section id="hero">
         <div class="container">
             <div class="hero-inner">
-                <div>
+                <div class="hero-left">
                     <div class="hero-badge" style="animation:fadeUp 0.5s ease both">
                         <span class="badge-dot"></span>
                         Available for new projects
                     </div>
                     <h1 class="hero-h1" style="animation:fadeUp 0.5s 0.08s ease both">
-                        I Build Mobile Apps<br />
-                        <span class="highlight">People Love.</span>
+                        <span class="hero-line">I Build Mobile Apps</span><br />
+                        <span class="hero-line highlight">People Love.</span>
                     </h1>
                     <p class="hero-sub" style="animation:fadeUp 0.5s 0.16s ease both">
-                        I'm <strong>Mudassir Ashraf</strong> — a Flutter & Android developer from Lahore.
-                        I turn your idea into a <strong>polished, production-ready app</strong> for Android
-                        and iOS — on time, on budget, published to the Play Store.
+                        I'm <strong>Mudassir Ashraf</strong> — a <strong>Mobile App Developer</strong> from Lahore.
+                        From your idea to a <strong>live app on the Play Store</strong> — I handle everything.
                     </p>
                     <div class="hero-btns" style="animation:fadeUp 0.5s 0.22s ease both">
                         <a href="#contact" class="btn-primary">Start Your App →</a>
@@ -74,37 +76,16 @@
                     </div>
                 </div>
 
-                <div class="card hero-card" style="animation:fadeUp 0.6s 0.18s ease both">
-                    <div class="hcard-header">
-                        <div class="avatar">MA</div>
-                        <div>
-                            <div class="hcard-name">Mudassir Ashraf</div>
-                            <div class="hcard-role">Flutter · Android · Node.js · Kotlin</div>
+                <div class="hero-right">
+                    <div class="card hero-card phone-mockup" style="animation:fadeUp 0.6s 0.18s ease both">
+                        <div class="phone-orbit"></div>
+                        <div class="phone-frame">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen">
+                                <img src="../assets/nova-solar-weather/screen1.webp"
+                                    alt="Nova Solar Weather app screenshot" loading="lazy" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="hstats">
-                        <div class="hstat">
-                            <div class="hstat-num">5.0⭐</div>
-                            <div class="hstat-lbl">Play Store Rating</div>
-                        </div>
-                        <div class="hstat">
-                            <div class="hstat-num">Live</div>
-                            <div class="hstat-lbl">Published App</div>
-                        </div>
-                        <div class="hstat">
-                            <div class="hstat-num">24h</div>
-                            <div class="hstat-lbl">Response</div>
-                        </div>
-                        <div class="hstat">
-                            <div class="hstat-num">4+</div>
-                            <div class="hstat-lbl">Tech Stacks</div>
-                        </div>
-                    </div>
-                    <div class="hchips">
-                        <span class="chip chip-blue">Flutter</span>
-                        <span class="chip chip-teal">Android</span>
-                        <span class="chip chip-green">Node.js</span>
-                        <span class="chip chip-orange">Play Store</span>
                     </div>
                 </div>
             </div>
@@ -132,8 +113,8 @@
     <section id="services">
         <div class="container">
             <div class="section-header reveal">
-                <div class="ey">What I Build</div>
-                <h2 class="section-title">Every App Service<br /><span>You Need</span></h2>
+                <div class="ey">Services</div>
+                <h2 class="section-title">What I Can Build<br /><span>For You</span></h2>
                 <p class="section-sub">From idea to Play Store — I handle the full cycle of mobile app development.</p>
             </div>
             <div class="services-grid">
@@ -142,48 +123,90 @@
                     <div class="svc-title">Flutter Mobile Apps</div>
                     <div class="svc-desc">One codebase, two platforms. Beautiful Flutter apps that run flawlessly on
                         Android and iOS with native performance and pixel-perfect UI.</div>
-                    <div class="svc-tags"><span class="chip chip-blue">Flutter</span><span
-                            class="chip chip-teal">Dart</span><span class="chip chip-green">Android + iOS</span></div>
+                    <button class="svc-tech-toggle" type="button">
+                        <span class="svc-tech-label">Technical details</span>
+                        <span class="svc-tech-caret">⌄</span>
+                    </button>
+                    <div class="svc-tech">
+                        <span class="chip chip-blue">Flutter</span>
+                        <span class="chip chip-teal">Dart</span>
+                        <span class="chip chip-green">Android + iOS</span>
+                    </div>
                 </div>
                 <div class="svc card reveal d1">
                     <div class="svc-icon">🤖</div>
                     <div class="svc-title">Native Android Apps</div>
                     <div class="svc-desc">Deep Android expertise with Kotlin and Java. Full development lifecycle from
                         design to Play Store publishing — I've done it live.</div>
-                    <div class="svc-tags"><span class="chip chip-blue">Kotlin</span><span
-                            class="chip chip-teal">Java</span><span class="chip chip-green">Play Store</span></div>
+                    <button class="svc-tech-toggle" type="button">
+                        <span class="svc-tech-label">Technical details</span>
+                        <span class="svc-tech-caret">⌄</span>
+                    </button>
+                    <div class="svc-tech">
+                        <span class="chip chip-blue">Kotlin</span>
+                        <span class="chip chip-teal">Java</span>
+                        <span class="chip chip-green">Play Store</span>
+                    </div>
                 </div>
                 <div class="svc card reveal d2">
                     <div class="svc-icon">⚙️</div>
                     <div class="svc-title">App Backend & APIs</div>
                     <div class="svc-desc">Your app needs a brain. I build Node.js backends with REST APIs, user auth,
                         real-time features and MongoDB to power your mobile app.</div>
-                    <div class="svc-tags"><span class="chip chip-blue">Node.js</span><span
-                            class="chip chip-teal">Express</span><span class="chip chip-green">MongoDB</span></div>
+                    <button class="svc-tech-toggle" type="button">
+                        <span class="svc-tech-label">Technical details</span>
+                        <span class="svc-tech-caret">⌄</span>
+                    </button>
+                    <div class="svc-tech">
+                        <span class="chip chip-blue">Node.js</span>
+                        <span class="chip chip-teal">Express</span>
+                        <span class="chip chip-green">MongoDB</span>
+                    </div>
                 </div>
                 <div class="svc card reveal d1">
                     <div class="svc-icon">🚀</div>
                     <div class="svc-title">Play Store Publishing</div>
                     <div class="svc-desc">End-to-end Play Store setup — app signing, release builds, store listing,
                         screenshots, and submission. Zero guesswork, done right.</div>
-                    <div class="svc-tags"><span class="chip chip-blue">Play Console</span><span
-                            class="chip chip-teal">ASO</span><span class="chip chip-green">Release</span></div>
+                    <button class="svc-tech-toggle" type="button">
+                        <span class="svc-tech-label">Technical details</span>
+                        <span class="svc-tech-caret">⌄</span>
+                    </button>
+                    <div class="svc-tech">
+                        <span class="chip chip-blue">Play Console</span>
+                        <span class="chip chip-teal">ASO</span>
+                        <span class="chip chip-green">Release</span>
+                    </div>
                 </div>
                 <div class="svc card reveal d2">
                     <div class="svc-icon">🔌</div>
                     <div class="svc-title">Third-Party Integrations</div>
                     <div class="svc-desc">Payments, maps, push notifications, social login, analytics — I integrate any
                         service cleanly into your app.</div>
-                    <div class="svc-tags"><span class="chip chip-blue">Firebase</span><span
-                            class="chip chip-teal">Stripe</span><span class="chip chip-green">Google Maps</span></div>
+                    <button class="svc-tech-toggle" type="button">
+                        <span class="svc-tech-label">Technical details</span>
+                        <span class="svc-tech-caret">⌄</span>
+                    </button>
+                    <div class="svc-tech">
+                        <span class="chip chip-blue">Firebase</span>
+                        <span class="chip chip-teal">Stripe</span>
+                        <span class="chip chip-green">Google Maps</span>
+                    </div>
                 </div>
                 <div class="svc card reveal d3">
                     <div class="svc-icon">🛠️</div>
                     <div class="svc-title">Maintenance & Updates</div>
                     <div class="svc-desc">Already have an app? I handle bug fixes, new features, performance
                         improvements, and OS compatibility updates.</div>
-                    <div class="svc-tags"><span class="chip chip-blue">Bug Fixes</span><span
-                            class="chip chip-teal">Updates</span><span class="chip chip-green">Performance</span></div>
+                    <button class="svc-tech-toggle" type="button">
+                        <span class="svc-tech-label">Technical details</span>
+                        <span class="svc-tech-caret">⌄</span>
+                    </button>
+                    <div class="svc-tech">
+                        <span class="chip chip-blue">Bug Fixes</span>
+                        <span class="chip chip-teal">Updates</span>
+                        <span class="chip chip-green">Performance</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -254,8 +277,9 @@
     <section id="projects">
         <div class="container">
             <div class="section-header reveal">
-                <div class="ey">Published Work</div>
-                <h2 class="section-title">Real Apps, <span>Real Results</span></h2>
+                <div class="ey">Apps I've Built</div>
+                <h2 class="section-title">Real Apps.<br /><span>Real Users.</span></h2>
+                <p class="section-sub">Real apps. Real users. Live on the Play Store.</p>
             </div>
             <div class="proj-grid">
                 <!-- Featured -->

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Nova Solar Weather",
+    "tagline": "Solar & space weather tracker",
+    "link": "https://play.google.com/store/apps/details?id=com.mudassir.novasolarweather",
+    "github": "https://github.com/mudassir-92",
+    "screen1": "/assets/projects/nova-solar-weather/screen1.webp",
+    "screen2": "/assets/projects/nova-solar-weather/screen2.webp",
+    "screen3": "/assets/projects/nova-solar-weather/screen3.webp",
+    "screen4": "/assets/projects/nova-solar-weather/screen4.webp",
+    "description": "A beautifully designed weather app for Android used by space weather enthusiasts worldwide. Rated 5.0 ⭐ by real users on Google Play.",
+    "status": "live"
+  },
+  {
+    "name": "REST API Backend",
+    "tagline": "Backend API for mobile apps",
+    "link": "https://github.com/mudassir-92",
+    "screen1": "",
+    "screen2": "",
+    "screen3": "",
+    "screen4": "",
+    "description": "Scalable backend with JWT auth, MongoDB, role-based access, and clean REST architecture — built to power any mobile app.",
+    "status": "in-progress"
+  }
+]
