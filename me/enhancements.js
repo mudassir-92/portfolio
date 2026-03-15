@@ -8,6 +8,7 @@
 (function () {
     const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const siteDataPromise = loadJson(['../data.json', '/data.json', 'data.json']);
+    let fallbackRevealObserver = null;
 
     async function loadJson(candidates) {
         for (const url of candidates) {
@@ -32,6 +33,25 @@
         if (typeof data[key] === 'string') return data[key].trim();
         if (data.hero && typeof data.hero[key] === 'string') return data.hero[key].trim();
         return '';
+    }
+
+    function observeRevealsSafe(root = document) {
+        if (typeof window.observeReveals === 'function') {
+            window.observeReveals(root);
+            return;
+        }
+
+        // Fallback observer for dynamically injected nodes (in case inline script hasn't defined observeReveals yet).
+        if (!fallbackRevealObserver) {
+            fallbackRevealObserver = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        }
+
+        root.querySelectorAll('.reveal:not(.visible):not([data-reveal-fb="1"])').forEach((el) => {
+            el.dataset.revealFb = '1';
+            fallbackRevealObserver.observe(el);
+        });
     }
 
     async function hydrateProofStripFromData() {
@@ -606,7 +626,7 @@
             warn.appendChild(row);
             grid.appendChild(warn);
 
-            if (typeof window.observeReveals === 'function') window.observeReveals(document);
+            observeRevealsSafe(document);
             return;
         }
 
@@ -614,15 +634,7 @@
         projects.forEach((p, i) => grid.appendChild(renderProjectCard(p, i)));
         grid.appendChild(renderCtaCard(Math.min(480, projects.length * 80)));
 
-        if (typeof window.observeReveals === 'function') {
-            window.observeReveals(document);
-        } else {
-            // Fallback observer for dynamically injected nodes
-            const obs = new IntersectionObserver(entries => {
-                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-            document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-        }
+        observeRevealsSafe(document);
 
         setupTilt();
         initProjectSwipers();
@@ -696,7 +708,7 @@
         fillTrack(trackA, clean);
         fillTrack(trackB, clean.slice().reverse());
 
-        if (typeof window.observeReveals === 'function') window.observeReveals(document);
+        observeRevealsSafe(document);
     }
 
     async function renderFaqFromJson() {
@@ -756,7 +768,7 @@
             grid.appendChild(d);
         });
 
-        if (typeof window.observeReveals === 'function') window.observeReveals(document);
+        observeRevealsSafe(document);
         setupTilt();
     }
 
