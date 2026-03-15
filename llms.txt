@@ -1,0 +1,22 @@
+# Mudassir Ashraf Portfolio
+
+This site is a personal portfolio for Mudassir Ashraf (Mobile App Developer / Flutter & Backend).
+
+## Pages
+- /me/ : Services, projects, contact form.
+- /dev/ : Developer profile (DSA, tech stack, GitHub, achievements).
+
+## Data Sources (preferred)
+- /data.json : Site/hero data (e.g. main hero screenshot URL).
+- /projects.json : Projects list (name, tagline, description, links, screenshots, tags, optional facts).
+- /reviews.json : Client reviews/testimonials.
+- /faqs.json : Frequently asked questions (question + answer).
+
+## Notes for crawlers
+- The site is mostly static HTML/CSS/JS. Some content is hydrated from the JSON files above.
+- If you need the most up-to-date project info, prefer the JSON files over page text.
+
+## Contact
+- Email: portfolio.mudassir@gmail.com
+- GitHub: https://github.com/mudassir-92
+- Google Play: https://play.google.com/store/apps/dev?id=8464703682058703923

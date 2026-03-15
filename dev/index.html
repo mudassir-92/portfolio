@@ -1,19 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Mudassir Ashraf — Flutter & Backend Developer. DSA, Competitive Programming, Open Source. 300+ problems solved." />
-    <title>Mudassir Ashraf · Developer</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="dev.css" />
-</head>
+	<head>
+	    <meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <meta name="description"
+	        content="Mudassir Ashraf — Flutter & Backend Developer. DSA, Competitive Programming, Open Source. 300+ problems solved." />
+	    <meta name="author" content="Mudassir Ashraf" />
+	    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+	    <meta name="theme-color" content="#0d1117" />
+	    <link rel="canonical" href="/dev/" />
+
+	    <meta property="og:type" content="website" />
+	    <meta property="og:site_name" content="Mudassir Ashraf" />
+	    <meta property="og:title" content="Mudassir Ashraf · Developer" />
+	    <meta property="og:description" content="Flutter & Backend Developer. Open source, competitive programming, and production apps." />
+	    <meta property="og:url" content="/dev/" />
+
+	    <meta name="twitter:card" content="summary" />
+	    <meta name="twitter:title" content="Mudassir Ashraf · Developer" />
+	    <meta name="twitter:description" content="Flutter & Backend Developer. Open source, competitive programming, and production apps." />
+	    <title>Mudassir Ashraf · Developer</title>
+	    <link
+	        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+	        rel="stylesheet" />
+	    <link rel="stylesheet" href="dev.css" />
+	    <script type="application/ld+json">
+	        {
+	            "@context": "https://schema.org",
+	            "@graph": [
+	                {
+	                    "@type": "Person",
+	                    "@id": "/#mudassir-ashraf",
+	                    "name": "Mudassir Ashraf",
+	                    "jobTitle": "Flutter & Backend Developer",
+	                    "address": {
+	                        "@type": "PostalAddress",
+	                        "addressLocality": "Lahore",
+	                        "addressCountry": "PK"
+	                    },
+	                    "email": "mailto:portfolio.mudassir@gmail.com",
+	                    "url": "/dev/",
+	                    "sameAs": [
+	                        "https://github.com/mudassir-92",
+	                        "https://play.google.com/store/apps/dev?id=8464703682058703923"
+	                    ]
+	                },
+	                {
+	                    "@type": "WebSite",
+	                    "@id": "/#website",
+	                    "name": "Mudassir Ashraf Portfolio",
+	                    "url": "/"
+	                },
+	                {
+	                    "@type": "WebPage",
+	                    "@id": "/dev/#webpage",
+	                    "name": "Mudassir Ashraf · Developer",
+	                    "url": "/dev/",
+	                    "isPartOf": { "@id": "/#website" },
+	                    "about": { "@id": "/#mudassir-ashraf" }
+	                }
+	            ]
+	        }
+	    </script>
+	</head>
 
 <body>
+    <div class="dev-bg" aria-hidden="true"></div>
 
     <!-- NAV -->
     <nav class="dev-nav">
@@ -84,13 +137,11 @@
     <!-- ═══ PUBLISHED APP ═══ -->
     <section class="dev-section" id="app">
         <div class="container">
-            <div class="sec-label reveal">Published Apps — netCode</div>
-            <h2 class="sec-title reveal"><span>Nova Solar Weather</span> — Live on Play Store</h2>
-            <p class="sec-sub reveal">Published under netCode on Google Play. Real-time solar weather data, location
-                forecasts, dark/light themes. Rated ⭐ 5.0 by real users worldwide.</p>
+            <div class="sec-label reveal" id="app-label">Published Apps — netCode</div>
+            <h2 class="sec-title reveal" id="app-title"><span>Loading…</span></h2>
+            <p class="sec-sub reveal" id="app-sub">Fetching from projects.json…</p>
             <div style="margin-top:20px;" class="reveal d1">
-                <a href="https://play.google.com/store/apps/details?id=com.mudassir.novasolarweather" target="_blank"
-                    class="dhl dhl-primary" style="display:inline-flex;">☀️ View on Play Store</a>
+                <a href="#" class="dhl dhl-primary" style="display:none;" id="app-cta">View</a>
             </div>
         </div>
     </section>
@@ -307,8 +358,8 @@
             <h2 class="sec-title reveal" style="margin:0 auto 24px;">Let's <span>Connect</span></h2>
 
             <div class="connect-links reveal d1">
-                <a href="mailto:gem920se@gmail.com" class="cnt-link email">
-                    <span class="cnt-link-icon">📡</span> gem920se@gmail.com
+                <a href="mailto:portfolio.mudassir@gmail.com" class="cnt-link email">
+                    <span class="cnt-link-icon">📡</span> portfolio.mudassir@gmail.com
                 </a>
                 <a href="https://github.com/mudassir-92" target="_blank" class="cnt-link github">
                     <span class="cnt-link-icon">🐙</span> mudassir-92
@@ -334,6 +385,7 @@
         </div>
     </div>
 
+    <script src="./dev.js"></script>
     <script>
         const obs = new IntersectionObserver(entries => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });

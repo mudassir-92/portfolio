@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Helpful for AI + search crawlers:
+# - Human-friendly summary: /llms.txt

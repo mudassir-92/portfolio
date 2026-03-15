@@ -1,0 +1,27 @@
+[
+  {
+    "question": "How much does an app cost?",
+    "answer": "It depends on scope. After a quick call/message, I’ll break your app into milestones and share a clear quote for each milestone."
+  },
+  {
+    "question": "How long does it take to build?",
+    "answer": "Most MVPs take 2–4 weeks. Bigger apps depend on features, UI complexity, and integrations (payments, maps, chat, etc.)."
+  },
+  {
+    "question": "Do you publish the app to my Play Store account?",
+    "answer": "Yes. I can guide you through Play Console setup, signing, release builds, store listing, screenshots, and submission."
+  },
+  {
+    "question": "Can you build for both Android and iOS?",
+    "answer": "Yes. I build cross-platform apps with Flutter (Android + iOS) and can also do Android-native when needed."
+  },
+  {
+    "question": "Do you sign an NDA?",
+    "answer": "Yes. If you need an NDA before sharing details, send it over and I’ll review and sign."
+  },
+  {
+    "question": "Do you provide support after launch?",
+    "answer": "Yes. I can help with bug fixes, updates, new features, and ongoing maintenance after the initial release."
+  }
+]
+

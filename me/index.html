@@ -1,31 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Mudassir Ashraf — Mobile App Developer from Lahore. I build mobile apps people love." />
-    <title>Mudassir Ashraf · App Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=DM+Sans:wght@400;500&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="../style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-</head>
+	<head>
+	    <meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <meta name="description" content="Mudassir Ashraf — Mobile App Developer from Pakistan. I build mobile apps people love." />
+	    <meta name="author" content="Mudassir Ashraf" />
+	    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+	    <meta name="theme-color" content="#0b1220" />
+	    <link rel="canonical" href="/me/" />
 
-<body>
+	    <meta property="og:type" content="website" />
+	    <meta property="og:site_name" content="Mudassir Ashraf" />
+	    <meta property="og:title" content="Mudassir Ashraf · App Developer" />
+	    <meta property="og:description" content="Mobile App Developer from Pakistan. From idea to a live app on Google Play — end-to-end delivery." />
+	    <meta property="og:url" content="/me/" />
+
+	    <meta name="twitter:card" content="summary" />
+	    <meta name="twitter:title" content="Mudassir Ashraf · App Developer" />
+	    <meta name="twitter:description" content="Mobile App Developer from Pakistan. From idea to a live app on Google Play — end-to-end delivery." />
+	    <title>Mudassir Ashraf · App Developer</title>
+		    <link rel="preconnect" href="https://fonts.googleapis.com" />
+		    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+	    <link
+	        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=DM+Sans:wght@400;500&display=swap"
+	        rel="stylesheet" />
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+	    <link rel="stylesheet" href="../style.css" />
+		    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+		    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+		    <script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+		    <script type="application/ld+json">
+		        {
+		            "@context": "https://schema.org",
+		            "@graph": [
+		                {
+		                    "@type": "Person",
+		                    "@id": "/#mudassir-ashraf",
+		                    "name": "Mudassir Ashraf",
+		                    "jobTitle": "Mobile App Developer",
+		                    "address": {
+		                        "@type": "PostalAddress",
+		                        "addressLocality": "Pakistan",
+		                        "addressCountry": "PK"
+		                    },
+		                    "email": "mailto:portfolio.mudassir@gmail.com",
+		                    "url": "/me/",
+		                    "sameAs": [
+		                        "https://github.com/mudassir-92",
+		                        "https://play.google.com/store/apps/dev?id=8464703682058703923"
+		                    ]
+		                },
+		                {
+		                    "@type": "WebSite",
+		                    "@id": "/#website",
+		                    "name": "Mudassir Ashraf Portfolio",
+		                    "url": "/"
+		                },
+		                {
+		                    "@type": "WebPage",
+		                    "@id": "/me/#webpage",
+		                    "name": "Mudassir Ashraf · App Developer",
+		                    "url": "/me/",
+		                    "isPartOf": { "@id": "/#website" },
+		                    "about": { "@id": "/#mudassir-ashraf" }
+		                }
+		            ]
+		        }
+		    </script>
+		</head>
+
+<body class="page-me">
+    <div class="site-bg" aria-hidden="true"></div>
+    <div class="cursor-donut" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
 
     <!-- NAV -->
     <nav>
-        <a href="/me/" class="nav-logo">
-            <span class="nav-logo-dot"></span>
-            Mudassir Ashraf
-        </a>
+	        <a href="/me/" class="nav-logo">
+	            <span class="nav-logo-dot"></span>
+	            Mudassir Ashraf
+	        </a>
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#process">Process</a>
@@ -33,9 +89,9 @@
             <a href="#contact">Hire Me</a>
             <a href="/dev/">Dev Portfolio</a>
         </div>
-        <a href="#contact" class="nav-cta">Start a Project</a>
-        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')"
-            aria-label="Menu">
+	        <a href="#contact" class="nav-cta" id="nav-cta">Start a Project</a>
+	        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')"
+	            aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
     </nav>
@@ -44,23 +100,29 @@
     <section id="hero">
         <div class="container">
             <div class="hero-inner">
-                <div class="hero-left">
-                    <div class="hero-badge" style="animation:fadeUp 0.5s ease both">
-                        <span class="badge-dot"></span>
-                        Available for new projects
-                    </div>
+	                <div class="hero-left">
+	                    <div class="hero-badge" style="animation:fadeUp 0.5s ease both">
+	                        <span class="badge-dot"></span>
+	                        <span id="hero-badge-text">Available for new projects</span>
+	                    </div>
                     <h1 class="hero-h1" style="animation:fadeUp 0.5s 0.08s ease both">
                         <span class="hero-line">I Build Mobile Apps</span><br />
                         <span class="hero-line highlight">People Love.</span>
                     </h1>
-                    <p class="hero-sub" style="animation:fadeUp 0.5s 0.16s ease both">
-                        I'm <strong>Mudassir Ashraf</strong> —  <strong>Mobile App Developer</strong> from Lahore.
-                        From your idea to a <strong>live app on the Play Store</strong> — I handle everything.
-                    </p>
-                    <div class="hero-btns" style="animation:fadeUp 0.5s 0.22s ease both">
-                        <a href="#contact" class="btn-primary">Start Your App →</a>
-                        <a href="#projects" class="btn-outline">See My Work</a>
-                    </div>
+	                    <p class="hero-sub" style="animation:fadeUp 0.5s 0.16s ease both">
+	                        I'm <strong id="hero-name">Mudassir Ashraf</strong> — <strong id="hero-role">Mobile App
+	                            Developer</strong> from <span id="hero-location">Pakistan</span>.
+	                        From your idea to a
+	                        <strong class="hero-em">
+	                            <span class="hero-em-live" id="hero-em-live">live</span>
+	                            <span class="hero-em-store" id="hero-em-store">Play Store</span>
+	                        </strong>
+	                        app — I handle everything.
+	                    </p>
+	                    <div class="hero-btns" style="animation:fadeUp 0.5s 0.22s ease both">
+	                        <a href="#contact" class="btn-primary" id="hero-cta-primary">Start Your App →</a>
+	                        <a href="#projects" class="btn-outline" id="hero-cta-secondary">See My Work</a>
+	                    </div>
                     <div class="hero-proof" style="animation:fadeUp 0.5s 0.3s ease both">
                         <div class="proof-item">
                             <span class="proof-icon">⭐</span>
@@ -83,14 +145,16 @@
                     <div class="card hero-card phone-mockup" style="animation:fadeUp 0.6s 0.18s ease both">
                         <div class="phone-orbit"></div>
                         <div class="phone-frame">
-                            <div class="phone-notch"></div>
-                            <div class="phone-screen">
-                                <img src="../assets/nova-solar-weather/screen1.webp"
-                                    alt="Nova Solar Weather app screenshot" loading="lazy" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+	                            <div class="phone-notch"></div>
+	                            <div class="phone-screen">
+	                                <img id="hero-main-ss"
+	                                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='16'%3E%3Crect width='100%25' height='100%25' fill='%230b1220'/%3E%3C/svg%3E"
+	                                    alt="App screenshot preview" loading="eager" fetchpriority="high"
+	                                    decoding="async" />
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
             </div>
         </div>
     </section>
@@ -98,17 +162,7 @@
     <!-- PROOF STRIP -->
     <div id="proof-strip">
         <div class="container">
-            <div class="proof-strip-inner">
-                <div class="ps-item"><span class="ps-icon">📱</span><span
-                        class="ps-val">Flutter</span>&nbsp;Cross-Platform</div>
-                <div class="ps-item"><span class="ps-icon">🤖</span><span class="ps-val">Kotlin</span>&nbsp;Native
-                    Android</div>
-                <div class="ps-item"><span class="ps-icon">⚙️</span><span class="ps-val">Node.js</span>&nbsp;Backend
-                    APIs</div>
-                <div class="ps-item"><span class="ps-icon">▶️</span><span class="ps-val">Play
-                        Store</span>&nbsp;Publisher</div>
-                <div class="ps-item"><span class="ps-icon">⭐</span><span class="ps-val">5.0</span>&nbsp;App Rating</div>
-            </div>
+            <div class="proof-strip-inner" id="proof-strip-inner"></div>
         </div>
     </div>
 
@@ -121,8 +175,9 @@
                 <p class="section-sub">From idea to Play Store — I handle the full cycle of mobile app development.</p>
             </div>
             <div class="services-grid">
-                <div class="svc card reveal">
-                    <div class="svc-icon"></div>
+                <div class="svc card reveal tilt-card" data-tilt="1" data-accent="blue">
+                    <div class="svc-icon" data-letter="FL"></div>
+                    <div class="svc-kicker">Cross-platform, polished UI</div>
                     <div class="svc-title">Flutter Mobile Apps</div>
                     <div class="svc-desc">One codebase, two platforms. Beautiful Flutter apps that run flawlessly on
                         Android and iOS with native performance and pixel-perfect UI.</div>
@@ -136,8 +191,9 @@
                         <span class="chip chip-green">Android + iOS</span>
                     </div>
                 </div>
-                <div class="svc card reveal d1">
-                    <div class="svc-icon"></div>
+                <div class="svc card reveal d1 tilt-card" data-tilt="1" data-accent="teal">
+                    <div class="svc-icon" data-letter="AN"></div>
+                    <div class="svc-kicker">Fast, stable, Play Store-ready</div>
                     <div class="svc-title">Native Android Apps</div>
                     <div class="svc-desc">Deep Android expertise with Kotlin and Java. Full development lifecycle from
                         design to Play Store publishing — I've done it live.</div>
@@ -151,8 +207,9 @@
                         <span class="chip chip-green">Play Store</span>
                     </div>
                 </div>
-                <div class="svc card reveal d2">
-                    <div class="svc-icon"></div>
+                <div class="svc card reveal d2 tilt-card" data-tilt="1" data-accent="green">
+                    <div class="svc-icon" data-letter="API"></div>
+                    <div class="svc-kicker">Auth, database, real-time</div>
                     <div class="svc-title">App Backend & APIs</div>
                     <div class="svc-desc">Your app needs a brain. I build Node.js backends with REST APIs, user auth,
                         real-time features and MongoDB to power your mobile app.</div>
@@ -166,8 +223,9 @@
                         <span class="chip chip-green">MongoDB</span>
                     </div>
                 </div>
-                <div class="svc card reveal d1">
-                    <div class="svc-icon"></div>
+                <div class="svc card reveal d1 tilt-card" data-tilt="1" data-accent="orange">
+                    <div class="svc-icon" data-letter="PS"></div>
+                    <div class="svc-kicker">Release, ASO, listings</div>
                     <div class="svc-title">Play Store Publishing</div>
                     <div class="svc-desc">End-to-end Play Store setup — app signing, release builds, store listing,
                         screenshots, and submission. Zero guesswork, done right.</div>
@@ -181,8 +239,9 @@
                         <span class="chip chip-green">Release</span>
                     </div>
                 </div>
-                <div class="svc card reveal d2">
-                    <div class="svc-icon"></div>
+                <div class="svc card reveal d2 tilt-card" data-tilt="1" data-accent="teal">
+                    <div class="svc-icon" data-letter="3P"></div>
+                    <div class="svc-kicker">Payments, maps, analytics</div>
                     <div class="svc-title">Third-Party Integrations</div>
                     <div class="svc-desc">Payments, maps, push notifications, social login, analytics — I integrate any
                         service cleanly into your app.</div>
@@ -196,8 +255,9 @@
                         <span class="chip chip-green">Google Maps</span>
                     </div>
                 </div>
-                <div class="svc card reveal d3">
-                    <div class="svc-icon"></div>
+                <div class="svc card reveal d3 tilt-card" data-tilt="1" data-accent="blue">
+                    <div class="svc-icon" data-letter="DEV"></div>
+                    <div class="svc-kicker">Writing, open source, deep-dives</div>
                     <div class="svc-title">Developer Portfolio</div>
                     <div class="svc-desc">Explore my technical blog, open-source contributions, and deep-dives into mobile development, architecture patterns, and best practices.</div>
                     <button class="svc-tech-toggle" type="button">
@@ -280,75 +340,41 @@
         <div class="container">
             <div class="section-header reveal">
                 <div class="ey">Apps I've Built</div>
-                <h2 class="section-title">Real Apps.<br /><span>Real Users.</span></h2>
+                <h2 class="section-title"><span class="st-line">Real Apps.</span><br /><span>Real Users.</span></h2>
                 <p class="section-sub">Real apps. Real users. Live on the Play Store.</p>
             </div>
-            <div class="proj-grid">
-                <!-- Featured -->
-                <div class="proj-card card feat reveal">
-                    <div class="proj-img">
-                        <div class="proj-img-inner">
-                            <div class="proj-big-icon">☀️</div>
-                            <div class="proj-rating-big">5.0 ⭐</div>
-                            <div class="proj-rating-sub">GOOGLE PLAY RATING</div>
-                            <div style="margin-top:12px;"><span class="chip chip-green">LIVE</span></div>
-                        </div>
-                    </div>
-                    <div class="proj-body">
-                        <div class="proj-top">
-                            <div class="proj-icon-sm">☀️</div>
-                            <div class="live-tag"><span class="live-dot"></span>Live on Play Store</div>
-                        </div>
-                        <div class="proj-title">Nova Solar Weather</div>
-                        <div class="proj-desc">A beautifully designed Android weather app with real-time solar data,
-                            location forecasts, dark/light themes, and a clean modern UI. Published under netCode —
-                            earning a perfect 5.0 ⭐ from real users worldwide.</div>
-                        <div class="proj-stack">
-                            <span class="chip chip-blue">Flutter</span>
-                            <span class="chip chip-teal">Dart</span>
-                            <span class="chip chip-green">REST API</span>
-                            <span class="chip chip-orange">Android</span>
-                        </div>
-                        <div class="proj-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.mudassir.novasolarweather"
-                                target="_blank" class="pl pl-primary">View on Play Store</a>
-                            <a href="https://github.com/mudassir-92" target="_blank" class="pl pl-ghost">GitHub</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="proj-grid" id="proj-grid"></div>
+        </div>
+    </section>
 
-                <div class="proj-card card reveal d1">
-                    <div class="proj-body" style="padding:24px;">
-                        <div class="proj-top">
-                            <div class="proj-icon-sm">🌐</div>
-                            <span class="chip chip-orange">In Progress</span>
-                        </div>
-                        <div class="proj-title">REST API Backend</div>
-                        <div class="proj-desc">Scalable backend with JWT auth, MongoDB, role-based access, and clean
-                            REST architecture — built to power any mobile app.</div>
-                        <div class="proj-stack"><span class="chip chip-teal">Node.js</span><span
-                                class="chip chip-blue">Express</span><span class="chip chip-green">MongoDB</span></div>
-                        <div class="proj-links"><a href="https://github.com/mudassir-92" target="_blank"
-                                class="pl pl-ghost">View on GitHub</a></div>
-                    </div>
-                </div>
-
-                <div class="proj-card card reveal d2"
-                    style="background:linear-gradient(135deg,var(--blue-pale),#eff6ff);border:1.5px dashed var(--blue-pale2);">
-                    <div class="proj-body" style="padding:24px;">
-                        <div class="proj-top">
-                            <div class="proj-icon-sm">📦</div>
-                            <span class="chip chip-blue">Yours Next?</span>
-                        </div>
-                        <div class="proj-title">Your App Could Be Here</div>
-                        <div class="proj-desc">I'm actively taking client projects. Have an idea? Let's turn it into the
-                            next featured app on this page.</div>
-                        <div class="proj-stack"><span class="chip chip-blue">Flutter</span><span
-                                class="chip chip-teal">Android</span><span class="chip chip-green">iOS</span></div>
-                        <div class="proj-links"><a href="#contact" class="pl pl-primary">Start a Project →</a></div>
-                    </div>
-                </div>
+    <!-- ═══ REVIEWS ═══ -->
+    <section id="reviews">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="ey">Reviews</div>
+                <h2 class="section-title">Clients Say<br /><span>Nice Things</span></h2>
+                <p class="section-sub">A few quick notes from people I've worked with.</p>
             </div>
+        </div>
+        <div class="rev-marquee reveal" id="rev-marquee" aria-label="Client reviews">
+            <div class="rev-row rev-row-a">
+                <div class="rev-track" data-track="a"></div>
+            </div>
+            <div class="rev-row rev-row-b">
+                <div class="rev-track" data-track="b"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="ey">FAQ</div>
+                <h2 class="section-title">Quick Answers<br /><span>Before You Message</span></h2>
+                <p class="section-sub">A few common questions Upwork clients ask before starting a project.</p>
+            </div>
+            <div class="faq-grid" id="faq-grid" aria-label="Frequently asked questions"></div>
         </div>
     </section>
 
@@ -364,10 +390,10 @@
                     <p class="cl-sub">Whether it's a startup MVP, a business tool, or a consumer app — fill the brief
                         and I'll get back with a plan and quote within 24 hours. No commitment required.</p>
                     <div class="clinks">
-                        <a class="clink" href="mailto:gem920se@gmail.com">
+                        <a class="clink" href="mailto:portfolio.mudassir@gmail.com">
                             <div class="clink-icon">✉️</div>
                             <div>
-                                <div class="clink-lbl">gem920se@gmail.com</div>
+                                <div class="clink-lbl">portfolio.mudassir@gmail.com</div>
                                 <div class="clink-sub">Email · Fastest response</div>
                             </div>
                         </a>
@@ -488,19 +514,21 @@
             <div class="footer-inner">
                 <div class="footer-logo">M<em>.</em>Ashraf</div>
                 <div class="footer-links">
-                    <a href="mailto:gem920se@gmail.com">Email</a>
+                    <a href="mailto:portfolio.mudassir@gmail.com">Email</a>
                     <a href="https://github.com/mudassir-92" target="_blank">GitHub</a>
                     <a href="https://play.google.com/store/apps/dev?id=8464703682058703923" target="_blank">Play
                         Store</a>
                     <a href="/dev/">Dev Portfolio</a>
                 </div>
-                <div class="footer-copy">© 2026 Mudassir Ashraf · Lahore 🇵🇰</div>
+                <div class="footer-copy">© 2026 Mudassir Ashraf · Pakistan 🇵🇰</div>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./enhancements.js"></script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
@@ -509,7 +537,13 @@
             const obs = new IntersectionObserver(entries => {
                 entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
             }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-            document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+            window.observeReveals = (root = document) => {
+                root.querySelectorAll('.reveal:not([data-reveal-observed])').forEach(el => {
+                    el.dataset.revealObserved = '1';
+                    obs.observe(el);
+                });
+            };
+            window.observeReveals(document);
 
             // Nav hide/show on scroll
             let lastScroll = 0;

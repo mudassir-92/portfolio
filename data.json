@@ -1,0 +1,30 @@
+{
+    "mainSS": "https://picsum.photos/1081/1920",
+    "proofStrip": [
+        {
+            "icon": "⭐",
+            "value": "5.0",
+            "label": "Play Store rating"
+        },
+        {
+            "icon": "📦",
+            "value": "Milestones",
+            "label": "Clear delivery"
+        },
+        {
+            "icon": "⚡",
+            "value": "<24h",
+            "label": "Response time"
+        },
+        {
+            "icon": "🛡️",
+            "value": "NDA",
+            "label": "If needed"
+        },
+        {
+            "icon": "🚀",
+            "value": "Launch",
+            "label": "Play Console help"
+        }
+    ]
+}
