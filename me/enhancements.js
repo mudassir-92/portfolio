@@ -530,6 +530,19 @@
         const dot = document.querySelector('.cursor-dot');
         if (!donut || !dot) return;
 
+        const tailCount = 7;
+        const tails = [];
+        for (let i = 0; i < tailCount; i += 1) {
+            const t = document.createElement('div');
+            t.className = 'cursor-tail';
+            t.style.width = `${Math.max(4, 10 - i)}px`;
+            t.style.height = `${Math.max(4, 10 - i)}px`;
+            t.style.opacity = '0';
+            t.style.background = `rgba(37, 99, 235, ${0.20 - i * 0.018})`;
+            document.body.appendChild(t);
+            tails.push(t);
+        }
+
         let targetX = window.innerWidth / 2;
         let targetY = window.innerHeight / 2;
         let donutX = targetX;
@@ -537,10 +550,15 @@
         let dotX = targetX;
         let dotY = targetY;
         let visible = false;
+        let lastMove = performance.now();
+
+        const tailX = new Array(tailCount).fill(targetX);
+        const tailY = new Array(tailCount).fill(targetY);
 
         function render() {
             const donutEase = 0.14;
             const dotEase = 0.22;
+            const tailEaseBase = 0.28;
 
             donutX += (targetX - donutX) * donutEase;
             donutY += (targetY - donutY) * donutEase;
@@ -550,16 +568,55 @@
             donut.style.transform = `translate3d(${donutX - donut.offsetWidth / 2}px, ${donutY - donut.offsetHeight / 2}px, 0)`;
             dot.style.transform = `translate3d(${dotX - dot.offsetWidth / 2}px, ${dotY - dot.offsetHeight / 2}px, 0)`;
 
+            // Tail: each dot follows the previous dot, so it briefly lingers when stopping.
+            let px = dotX;
+            let py = dotY;
+            for (let i = 0; i < tails.length; i += 1) {
+                const ease = Math.max(0.14, tailEaseBase - i * 0.02);
+                tailX[i] += (px - tailX[i]) * ease;
+                tailY[i] += (py - tailY[i]) * ease;
+                tails[i].style.transform = `translate3d(${tailX[i] - tails[i].offsetWidth / 2}px, ${tailY[i] - tails[i].offsetHeight / 2}px, 0)`;
+                px = tailX[i];
+                py = tailY[i];
+            }
+
+            // Hide the custom cursor shortly after the mouse stops, so the UI isn't cluttered.
+            const idleMs = performance.now() - lastMove;
+            const idleThreshold = 170;
+            const tailFadeAfter = 220;
+
+            if (visible) {
+                const moving = idleMs < idleThreshold;
+                if (moving) {
+                    donut.style.opacity = '1';
+                    dot.style.opacity = '1';
+                    document.body.classList.add('cursor-custom-on');
+                    tails.forEach(t => { t.style.opacity = '1'; });
+                } else {
+                    // Donut/dot off when idle: fall back to the normal system cursor.
+                    donut.style.opacity = '0';
+                    dot.style.opacity = '0';
+                    document.body.classList.remove('cursor-custom-on');
+
+                    // Tail lingers briefly then fades out.
+                    const tailAlpha = Math.max(0, 1 - Math.max(0, idleMs - tailFadeAfter) / 220);
+                    tails.forEach((t) => { t.style.opacity = String(tailAlpha); });
+                }
+            }
+
             requestAnimationFrame(render);
         }
 
         window.addEventListener('pointermove', (e) => {
             targetX = e.clientX;
             targetY = e.clientY;
+            lastMove = performance.now();
             if (!visible) {
                 visible = true;
                 donut.style.opacity = '1';
                 dot.style.opacity = '1';
+                document.body.classList.add('cursor-custom-on');
+                tails.forEach(t => { t.style.opacity = '1'; });
             }
         }, { passive: true });
 

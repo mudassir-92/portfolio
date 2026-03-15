@@ -423,21 +423,28 @@
                     </div>
                 </div>
 
-                <div class="cf reveal d1">
+                <form class="cf reveal d1" name="project-brief" method="POST" data-netlify="true"
+                    netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="project-brief" />
+                    <p class="sr-only">
+                        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
+
                     <div class="cf-title">Tell Me About Your App</div>
                     <div class="cf-sub">Free consultation · I'll respond within 24 hours</div>
 
                     <div class="frow">
-                        <div class="fg"><label>Your Name</label><input id="f-name" type="text" placeholder="John Smith"
+                        <div class="fg"><label>Your Name</label><input id="f-name" name="name" type="text"
+                                placeholder="John Smith"
                                 required /></div>
-                        <div class="fg"><label>Email Address</label><input id="f-email" type="email"
+                        <div class="fg"><label>Email Address</label><input id="f-email" name="email" type="email"
                                 placeholder="you@company.com" required />
                         </div>
                     </div>
 
                     <div class="fg">
                         <label>What Kind of App Do You Need?</label>
-                        <select id="f-apptype">
+                        <select id="f-apptype" name="app_type">
                             <option value="" disabled selected>Choose app type...</option>
                             <option>E-Commerce / Shopping App</option>
                             <option>Food Delivery / Restaurant App</option>
@@ -456,7 +463,7 @@
 
                     <div class="fg">
                         <label>Target Platform</label>
-                        <select id="f-platform">
+                        <select id="f-platform" name="platform">
                             <option value="" disabled selected>Choose platform...</option>
                             <option>Android Only</option>
                             <option>iOS Only</option>
@@ -468,7 +475,7 @@
                     <div class="budget-row">
                         <div class="fg">
                             <label>Your Budget</label>
-                            <select id="f-budget">
+                            <select id="f-budget" name="budget">
                                 <option value="" disabled selected>Budget range...</option>
                                 <option>Under $300</option>
                                 <option>$300 – $700</option>
@@ -480,7 +487,7 @@
                         </div>
                         <div class="fg">
                             <label>Timeline</label>
-                            <select id="f-timeline">
+                            <select id="f-timeline" name="timeline">
                                 <option value="" disabled selected>Desired timeline...</option>
                                 <option>ASAP (Rush)</option>
                                 <option>2 – 4 weeks</option>
@@ -493,13 +500,13 @@
 
                     <div class="fg">
                         <label>Describe Your App</label>
-                        <textarea id="f-message"
+                        <textarea id="f-message" name="message"
                             placeholder="What does your app do? Who are the users? What features do you need? Any similar apps you like?"></textarea>
                     </div>
 
-                    <button class="fsub" onclick="handleSubmit(event)">Send Project Brief →</button>
+                    <button class="fsub" type="submit">Send Project Brief →</button>
                     <div class="fnote">🔒 No commitment · Free consultation · Reply within 24h</div>
-                </div>
+                </form>
             </div>
         </div>
     </section>
@@ -534,6 +541,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="/config.js"></script>
     <script src="../script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./enhancements.js"></script>

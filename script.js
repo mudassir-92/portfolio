@@ -5,6 +5,11 @@
     }
 })();
 
+function encodeFormData(form) {
+    const fd = new FormData(form);
+    return new URLSearchParams(fd).toString();
+}
+
 /* ── Reveal on scroll ── */
 const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -21,9 +26,11 @@ window.addEventListener('scroll', () => {
 });
 
 /* ── Contact Form Submit (EmailJS) ── */
-function handleSubmit(e) {
+async function handleSubmit(e) {
     e.preventDefault();
-    const btn = document.querySelector('.fsub');
+    const form = e.target && e.target.closest ? e.target.closest('form') : document.querySelector('form[name="project-brief"]');
+    const btn = form ? form.querySelector('.fsub') : document.querySelector('.fsub');
+    if (!btn) return;
 
     // Grab values
     const name = document.getElementById('f-name')?.value.trim() || '';
@@ -68,10 +75,56 @@ function handleSubmit(e) {
         time: timeStr
     };
 
-    // Check if EmailJS is loaded
-    if (typeof emailjs === 'undefined' || !window.CONFIG) {
-        btn.textContent = '❌ Config not loaded — check config.js';
+    // Prefer EmailJS if configured, otherwise fall back to Netlify Forms (works on Netlify without keys).
+    const hasEmailJs = (typeof emailjs !== 'undefined' && window.CONFIG
+        && window.CONFIG.EMAILJS_PUBLIC_KEY
+        && window.CONFIG.EMAILJS_SERVICE_ID
+        && window.CONFIG.EMAILJS_CONTACT_TEMPLATE_ID);
+
+    try {
+        if (hasEmailJs) {
+            await emailjs.send(window.CONFIG.EMAILJS_SERVICE_ID, window.CONFIG.EMAILJS_CONTACT_TEMPLATE_ID, templateParams);
+            if (window.CONFIG.EMAILJS_AUTOREPLY_TEMPLATE_ID) {
+                await new Promise((resolve) => setTimeout(resolve, 1200));
+                await emailjs.send(window.CONFIG.EMAILJS_SERVICE_ID, window.CONFIG.EMAILJS_AUTOREPLY_TEMPLATE_ID, templateParams);
+            }
+        } else {
+            if (!form) throw new Error('form not found');
+            const body = encodeFormData(form);
+            const res = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body
+            });
+            if (!res.ok) throw new Error('netlify form submit failed');
+        }
+
+        // Success
+        btn.textContent = '✅ Brief Sent! I will reply within 24 hours';
+        btn.style.background = '#059669';
+        btn.style.boxShadow = '0 4px 16px rgba(5,150,105,0.3)';
+        btn.disabled = false;
+        btn.style.opacity = '1';
+
+        // Clear form
+        ['f-name', 'f-email', 'f-apptype', 'f-platform', 'f-budget', 'f-timeline', 'f-message'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                if (el.tagName === 'SELECT') el.selectedIndex = 0;
+                else el.value = '';
+            }
+        });
+
+        setTimeout(() => {
+            btn.textContent = 'Send Project Brief →';
+            btn.style.background = '';
+            btn.style.boxShadow = '';
+        }, 5000);
+    } catch (err) {
+        console.error('Brief Send Error:', err);
+        btn.textContent = '❌ Failed to send — try again';
         btn.style.background = '#dc2626';
+        btn.style.boxShadow = '0 4px 16px rgba(220,38,38,0.3)';
         btn.disabled = false;
         btn.style.opacity = '1';
         setTimeout(() => {
@@ -79,54 +132,11 @@ function handleSubmit(e) {
             btn.style.background = '';
             btn.style.boxShadow = '';
         }, 4000);
-        return;
     }
-
-    // Send contact email to you
-    emailjs.send(window.CONFIG.EMAILJS_SERVICE_ID, window.CONFIG.EMAILJS_CONTACT_TEMPLATE_ID, templateParams)
-        .then(function () {
-            // Wait 2s, then send auto-reply to client
-            return new Promise(function (resolve) {
-                setTimeout(function () {
-                    resolve(emailjs.send(window.CONFIG.EMAILJS_SERVICE_ID, window.CONFIG.EMAILJS_AUTOREPLY_TEMPLATE_ID, templateParams));
-                }, 2000);
-            });
-        })
-        .then(function () {
-            // Success
-            btn.textContent = '✅ Brief Sent! Check your email for confirmation';
-            btn.style.background = '#059669';
-            btn.style.boxShadow = '0 4px 16px rgba(5,150,105,0.3)';
-            btn.disabled = false;
-            btn.style.opacity = '1';
-
-            // Clear form
-            ['f-name', 'f-email', 'f-apptype', 'f-platform', 'f-budget', 'f-timeline', 'f-message'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) {
-                    if (el.tagName === 'SELECT') el.selectedIndex = 0;
-                    else el.value = '';
-                }
-            });
-
-            setTimeout(() => {
-                btn.textContent = 'Send Project Brief →';
-                btn.style.background = '';
-                btn.style.boxShadow = '';
-            }, 5000);
-        })
-        .catch(function (err) {
-            console.error('EmailJS Error:', err);
-            btn.textContent = '❌ Failed to send — try again';
-            btn.style.background = '#dc2626';
-            btn.style.boxShadow = '0 4px 16px rgba(220,38,38,0.3)';
-            btn.disabled = false;
-            btn.style.opacity = '1';
-            setTimeout(() => {
-                btn.textContent = 'Send Project Brief →';
-                btn.style.background = '';
-                btn.style.boxShadow = '';
-            }, 4000);
-        });
 }
 
+// Attach submit handler if the form exists (preferred over inline onclick).
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form[name="project-brief"]');
+    if (form) form.addEventListener('submit', handleSubmit);
+});
