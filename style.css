@@ -1236,6 +1236,10 @@ section {
         grid-template-columns: 1fr;
     }
 
+    .proj-card.feat .proj-row {
+        grid-template-columns: 1fr;
+    }
+
     .proj-media {
         border-left: none;
         border-top: 1px solid rgba(229, 231, 235, 0.9);
@@ -2697,6 +2701,10 @@ footer {
     }
 
     .proj-row {
+        grid-template-columns: 1fr;
+    }
+
+    .proj-card.feat .proj-row {
         grid-template-columns: 1fr;
     }
 
