@@ -15,6 +15,9 @@
                 // eslint-disable-next-line no-await-in-loop
                 const res = await fetch(url, { cache: 'no-store' });
                 if (!res.ok) continue;
+                const ct = (res.headers && res.headers.get) ? (res.headers.get('content-type') || '') : '';
+                // If a host rewrite returns HTML (common with SPA redirects), skip it.
+                if (ct.includes('text/html')) continue;
                 // eslint-disable-next-line no-await-in-loop
                 return await res.json();
             } catch (_) {
@@ -591,7 +594,7 @@
 
             const desc = document.createElement('div');
             desc.className = 'proj-desc';
-            desc.textContent = 'This section reads from projects.json. If you opened the HTML directly, run a local server so fetch() can load the JSON.';
+            desc.textContent = 'This section reads from projects.json. If JSON isn’t loading on Netlify, make sure the publish directory is the repo root (.) and remove any SPA redirect that rewrites /projects.json to HTML.';
 
             body.appendChild(top);
             body.appendChild(title);

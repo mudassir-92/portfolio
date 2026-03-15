@@ -1,0 +1,6 @@
+[build]
+  publish = "."
+
+# This is a static site (no build step required).
+# Keeping it explicit avoids misconfigured publish directories that break fetch() for JSON files.
+
