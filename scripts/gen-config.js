@@ -35,10 +35,9 @@ loadDotEnvIfPresent();
 
 const cfg = {
   EMAILJS_PUBLIC_KEY: readEnv('EMAILJS_PUBLIC_KEY'),
-  // These IDs aren't secrets, but you can still override them via env vars.
-  EMAILJS_SERVICE_ID: readEnv('EMAILJS_SERVICE_ID', 'service_rb59o9a'),
-  EMAILJS_CONTACT_TEMPLATE_ID: readEnv('EMAILJS_CONTACT_TEMPLATE_ID', 'template_cd2eg9j'),
-  EMAILJS_AUTOREPLY_TEMPLATE_ID: readEnv('EMAILJS_AUTOREPLY_TEMPLATE_ID', 'template_xuppqc6')
+  EMAILJS_SERVICE_ID: readEnv('EMAILJS_SERVICE_ID'),
+  EMAILJS_CONTACT_TEMPLATE_ID: readEnv('EMAILJS_CONTACT_TEMPLATE_ID'),
+  EMAILJS_AUTOREPLY_TEMPLATE_ID: readEnv('EMAILJS_AUTOREPLY_TEMPLATE_ID')
 };
 
 const outPath = path.join(process.cwd(), 'config.js');
