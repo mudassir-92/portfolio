@@ -3,3 +3,6 @@ Allow: /
 
 # Helpful for AI + search crawlers:
 # - Human-friendly summary: /llms.txt
+
+# Sitemap
+Sitemap: /sitemap.xml

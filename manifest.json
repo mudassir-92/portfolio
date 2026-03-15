@@ -1,0 +1,37 @@
+{
+  "name": "Mudassir Ashraf — Mobile App Developer",
+  "short_name": "Mudassir",
+  "description": "Portfolio of Mudassir Ashraf (Mobile App Developer). Services, projects, and contact.",
+  "start_url": "/me/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Work",
+      "url": "/me/#projects"
+    },
+    {
+      "name": "Contact",
+      "url": "/me/#contact"
+    },
+    {
+      "name": "Dev Portfolio",
+      "url": "/dev/"
+    }
+  ]
+}
+

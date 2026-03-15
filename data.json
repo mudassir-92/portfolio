@@ -1,5 +1,7 @@
 {
     "mainSS": "https://picsum.photos/1081/1920",
+    "ogImage": "/og/og.png",
+    "siteUrl": "https://mudassir.xyz",
     "proofStrip": [
         {
             "icon": "⭐",
