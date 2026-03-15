@@ -768,7 +768,26 @@ body {
 }
 
 /* ── RESPONSIVE ── */
-@media(max-width:768px) {
+@media(max-width:980px) {
+    .dev-nav {
+        padding: 0 20px;
+    }
+
+    .dev-nav-links {
+        gap: 18px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    /* DSA stats get cramped on tablets */
+    .dsa-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:900px) {
 
     /* Nav - hamburger */
     .dev-nav {
@@ -863,6 +882,15 @@ body {
 
     .dsa-detail {
         padding: 18px;
+    }
+
+    .dsa-detail-header {
+        flex-wrap: wrap;
+    }
+
+    .dsa-detail-handle {
+        margin-left: 0;
+        width: 100%;
     }
 
     /* Section text */

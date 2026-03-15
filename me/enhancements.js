@@ -797,36 +797,66 @@
             return;
         }
 
-        grid.innerHTML = '';
-        clean.slice(0, 12).forEach((f, i) => {
-            const d = document.createElement('details');
-            d.className = `faq-item card reveal${i ? ` d${Math.min(3, i)}` : ''}`;
+        const maxAll = 12;
+        const initialCount = Math.min(4, clean.length, maxAll);
+        const fullCount = Math.min(clean.length, maxAll);
 
-            const s = document.createElement('summary');
-            s.className = 'faq-q';
+        function renderFaqItems(count) {
+            grid.innerHTML = '';
+            clean.slice(0, count).forEach((f, i) => {
+                const d = document.createElement('details');
+                d.className = `faq-item card reveal${i ? ` d${Math.min(3, i)}` : ''}`;
 
-            const q = document.createElement('span');
-            q.className = 'faq-q-text';
-            q.textContent = f.q;
+                const s = document.createElement('summary');
+                s.className = 'faq-q';
 
-            const ic = document.createElement('span');
-            ic.className = 'faq-ic';
-            ic.textContent = '+';
+                const q = document.createElement('span');
+                q.className = 'faq-q-text';
+                q.textContent = f.q;
 
-            s.appendChild(q);
-            s.appendChild(ic);
+                const ic = document.createElement('span');
+                ic.className = 'faq-ic';
+                ic.textContent = '+';
 
-            const a = document.createElement('div');
-            a.className = 'faq-a';
-            a.textContent = f.a;
+                s.appendChild(q);
+                s.appendChild(ic);
 
-            d.appendChild(s);
-            d.appendChild(a);
-            grid.appendChild(d);
-        });
+                const a = document.createElement('div');
+                a.className = 'faq-a';
+                a.textContent = f.a;
 
-        observeRevealsSafe(document);
-        setupTilt();
+                d.appendChild(s);
+                d.appendChild(a);
+                grid.appendChild(d);
+            });
+
+            observeRevealsSafe(document);
+            setupTilt();
+        }
+
+        renderFaqItems(initialCount);
+
+        const existingBtn = document.getElementById('faq-more-btn');
+        if (existingBtn) existingBtn.remove();
+
+        if (clean.length > initialCount) {
+            let expanded = false;
+            const btn = document.createElement('button');
+            btn.id = 'faq-more-btn';
+            btn.type = 'button';
+            btn.className = 'btn-outline faq-more';
+            btn.textContent = 'Show all FAQs →';
+            btn.setAttribute('aria-expanded', 'false');
+
+            btn.addEventListener('click', () => {
+                expanded = !expanded;
+                btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                btn.textContent = expanded ? 'Show fewer FAQs' : 'Show all FAQs →';
+                renderFaqItems(expanded ? fullCount : initialCount);
+            });
+
+            grid.insertAdjacentElement('afterend', btn);
+        }
     }
 
     async function hydrateHeroFromData() {
@@ -849,6 +879,7 @@
             const sHref = readMaybe(data, 'heroSecondaryHref');
             const navText = readMaybe(data, 'navCtaText');
             const navHref = readMaybe(data, 'navCtaHref');
+            const mainSSHref = readMaybe(data, 'mainSSHref');
 
             const badgeEl = document.getElementById('hero-badge-text');
             if (badge && badgeEl) badgeEl.textContent = badge;
@@ -877,6 +908,11 @@
             if (nav) {
                 if (navText) nav.textContent = navText;
                 if (navHref) nav.setAttribute('href', navHref);
+            }
+
+            const phoneLink = document.getElementById('hero-phone-link');
+            if (phoneLink && mainSSHref) {
+                phoneLink.setAttribute('href', mainSSHref);
             }
 
             const mainSS = data && typeof data.mainSS === 'string' ? data.mainSS.trim() : '';

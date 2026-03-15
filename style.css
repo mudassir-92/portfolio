@@ -540,6 +540,14 @@ section {
     margin-bottom: 40px;
 }
 
+.hero-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: -18px 0 28px;
+    max-width: 520px;
+}
+
 .hero-proof {
     display: flex;
     align-items: center;
@@ -558,6 +566,18 @@ section {
     overflow: visible;
     background: var(--white);
     box-shadow: var(--shadow);
+}
+
+.phone-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.phone-link:focus-visible {
+    outline: 2px solid rgba(37, 99, 235, 0.55);
+    outline-offset: 6px;
+    border-radius: 18px;
 }
 
 .phone-orbit {
@@ -1825,6 +1845,13 @@ section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
+}
+
+.faq-more {
+    margin: 18px auto 0;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
 }
 
 .faq-item {
