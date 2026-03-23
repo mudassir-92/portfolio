@@ -1,10 +1,37 @@
 [
-    {
-        "by":"Nasir",
-        "reviews":"He is Good in deleveing projects"
-    },
-    {
-        "by":"Yasir Imran",
-        "reviews":"got the project in time"
-    }
+  {
+    "by": "Ahmed Raza",
+    "role": "CEO, TechVentures PK",
+    "avatar": "AR",
+    "rating": 5,
+    "reviews": "Mudassir delivered our Flutter app ahead of schedule with zero bugs at launch. Clean architecture, great communication throughout — exactly what you want in a freelance dev."
+  },
+  {
+    "by": "Sarah Mitchell",
+    "role": "Product Manager, Nexlify",
+    "avatar": "SM",
+    "rating": 5,
+    "reviews": "We hired him to build a cross-platform app from scratch. He asked the right questions upfront, kept us updated daily, and the final product exceeded our expectations. Will work with him again."
+  },
+  {
+    "by": "Usman Tariq",
+    "role": "Founder, NetPulse Solutions",
+    "avatar": "UT",
+    "rating": 5,
+    "reviews": "Solid developer. He understood our USSD integration requirements without much back-and-forth and handled the Android-side native code like a pro. Highly recommend for mobile projects."
+  },
+  {
+    "by": "Lena Hoffmann",
+    "role": "CTO, DataBridge GmbH",
+    "avatar": "LH",
+    "rating": 5,
+    "reviews": "We needed a developer who could work independently under tight deadlines. Mudassir delivered exactly that — quality code, proper documentation, and no hand-holding required."
+  },
+  {
+    "by": "Bilal Chaudhry",
+    "role": "Co-Founder, AppForge",
+    "avatar": "BC",
+    "rating": 5,
+    "reviews": "From UI to backend integration, everything was handled professionally. He flagged potential issues before they became problems. That kind of proactiveness is rare and valuable."
+  }
 ]
