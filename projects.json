@@ -1,15 +1,41 @@
 [
+   {
+    "name": "Contestify - Contest Tracker",
+    "tagline": "Track contests. Get notified. Compete on time.",
+    "link": "https://play.google.com/store/apps/details?id=com.netcode.contestify",
+    "github": "https://github.com/mudassir-92/contestify",
+    "screen1": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/contestify/WhatsApp%20Image%202026-03-23%20at%206.08.59%20PM.jpeg",
+    "screen2": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/contestify/Slice%201.png",
+    "screen3": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/contestify/Slice%203.png",
+    "screen4": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/contestify/Slice%206.png",
+    "description": "Track all coding contests in one place with smart reminders. Built with Dart (Flutter), Firebase, and Express/Node for fast, real-time updates.",
+    "status": "close testing",
+    "tags":["flutter","firebase","nodejs","express"]
+  },
   {
     "name": "Nova Solar Weather",
     "tagline": "Solar & space weather tracker",
     "link": "https://play.google.com/store/apps/details?id=com.mudassir.novasolarweather",
     "github": "https://github.com/mudassir-92",
-    "screen1": "https://picsum.photos/1080/1920",
-    "screen2": "https://picsum.photos/1080/1921",
-    "screen3": "https://picsum.photos/1081/1920",
-    "screen4": "https://picsum.photos/1080/1922",
+    "screen1": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/solar/WhatsApp%20Image%202026-03-23%20at%205.46.11%20PM.jpeg",
+    "screen2": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/solar/Screenshot_20251202-220736.png",
+    "screen3": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/solar/Screenshot_20251202-220712.png",
+    "screen4": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/solar/Screenshot_20251202-220642.png",
     "description": "A beautifully designed weather app for Android used by space weather enthusiasts worldwide. Rated 5.0 ⭐ by real users on Google Play.",
     "status": "live",
-    "tags":["dart","api","UI"]
-  }
+    "tags":["flutter","firebase","API"]
+  },
+  {
+  "name": "Gupshup - Messaging App",
+  "tagline": "Real-time chat with audio & video calling",
+  "link": "",
+  "github": "https://github.com/mudassir-92/gupshup",
+  "screen1": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/gupshup/g3.png",
+  "screen2": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/gupshup/g4.png",
+  "screen3": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/gupshup/g2.png",
+  "screen4": "https://zdqbsqqlgeuabmtfwrqe.supabase.co/storage/v1/object/public/imgs/gupshup/g1.png",
+  "description": "A full-featured real-time messaging app built with Flutter. Supports instant chat, media sharing, audio/video calls via ZegoCloud, and secure authentication using Supabase. Includes username-based search, profile customization, and built-in image editing.",
+  "status": "On Github Only",
+  "tags": ["flutter","supabase","nodejs","express","postgresql","realtime","chat"]
+}
 ]
